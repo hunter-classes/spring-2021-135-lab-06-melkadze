@@ -1,5 +1,5 @@
 main: main.o funcs.o
-	g++ -o main main.o funcs.ot
+	g++ -o main main.o caesar.o
 	
 test-ascii: test-ascii.o
 	g++ -o test-ascii test-ascii.o
@@ -11,11 +11,11 @@ tests: tests.o funcs.o
 
 test-ascii.o: test-ascii.cpp
 
-funcs.o: funcs.cpp funcs.h
+caesar.o: caesar.cpp caesar.h
 
-main.o: main.cpp funcs.h
+main.o: main.cpp caesar.h
 
-tests.o: tests.cpp doctest.h funcs.h
+tests.o: tests.cpp doctest.h caesar.h
 
 clean:
-	rm -f main.o funcs.o tests.o test-ascii.o
+	rm -f main.o caesar.o tests.o test-ascii.o
