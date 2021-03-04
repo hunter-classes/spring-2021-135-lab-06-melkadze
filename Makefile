@@ -13,7 +13,7 @@ test-ascii.o: test-ascii.cpp
 
 caesar.o: caesar.cpp caesar.h
 
-vigenere.o: vigenere.cpp vigenere.h
+vigenere.o: vigenere.cpp vigenere.h caesar.h # we reuse the task B helper
 
 main.o: main.cpp caesar.h vigenere.h
 

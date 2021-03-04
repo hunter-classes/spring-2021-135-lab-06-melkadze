@@ -24,7 +24,7 @@ char shiftChar(char c, int rshift) {
             if (newChar == 90)
                 newChar = 65;
             else
-                newChar = shiftChar(newChar, 1);
+                newChar = newChar + 1;
         }
     } else if (97 <= c && c <= 122) {
         // lowercases
@@ -32,7 +32,7 @@ char shiftChar(char c, int rshift) {
             if (newChar == 122)
                 newChar = 97;
             else
-                newChar = shiftChar(newChar, 1);
+                newChar = newChar + 1;
         }
     } //ignore all others (symbols)
     
