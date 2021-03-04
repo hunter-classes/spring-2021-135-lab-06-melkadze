@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 std::string asciiCodes(std::string s) {
     std::string result = "";
