@@ -21,3 +21,13 @@ TEST_CASE("[B: shiftChar] Uppercase") {
     CHECK(shiftChar('B', -1) == 'A');
     CHECK(shiftChar('A', -53) == 'Z');
 }
+
+TEST_CASE("[B: shiftChar] Non-alphabetic characters (should not shift)") {
+    CHECK(shiftChar('^', 4) == '^');
+    CHECK(shiftChar('#', 10) == '#');
+    CHECK(shiftChar('@', 26) == '@');
+    CHECK(shiftChar('4', 12) == '4');
+    CHECK(shiftChar(' ', 53) == ' ');
+    CHECK(shiftChar(';', -1) == ';');
+    CHECK(shiftChar('"', -53) == '"');
+}
