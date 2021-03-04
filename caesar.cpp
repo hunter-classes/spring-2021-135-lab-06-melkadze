@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "caesar.h"
 
 // take any rshift value and convert it such that 0 <= rshift <= 25
