@@ -1,6 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 #include "caesar.h"
+#include "vigenere.h"
 
 TEST_CASE("[B: shiftChar] Lowercase") {
     CHECK(shiftChar('a', 4) == 'e');
