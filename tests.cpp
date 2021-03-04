@@ -31,3 +31,15 @@ TEST_CASE("[B: shiftChar] Non-alphabetic characters (should not shift)") {
     CHECK(shiftChar(';', -1) == ';');
     CHECK(shiftChar('"', -53) == '"');
 }
+
+TEST_CASE("[B: encryptCaesar] Shiftable strings") {
+    CHECK(encryptCaesar("Hello, World!", 10) == "Rovvy, Gybvn!");
+    CHECK(encryptCaesar("ABCD, abcd", 1) == "BCDE, bcde");
+    CHECK(encryptCaesar("this is identical to", 26) == "this is identical to");
+}
+
+TEST_CASE("[B: encryptCaesar] Nonshiftable strings") {
+    CHECK(encryptCaesar("!!!!!?????", 10) == "!!!!!?????");
+    CHECK(encryptCaesar("1234, 5678", 1) == "1234, 5678");
+    CHECK(encryptCaesar("     ", 5) == "     ");
+}
