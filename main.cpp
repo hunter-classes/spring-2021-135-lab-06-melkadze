@@ -1,9 +1,6 @@
 #include <iostream>
+#include "caesar.h"
 
-
-#include "funcs.h"
-
-int main()
-{
+int main() {
   return 0;
 }

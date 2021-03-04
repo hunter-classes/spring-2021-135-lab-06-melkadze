@@ -1,11 +1,11 @@
-main: main.o funcs.o
+main: main.o caesar.o
 	g++ -o main main.o caesar.o
 	
 test-ascii: test-ascii.o
 	g++ -o test-ascii test-ascii.o
 
-tests: tests.o funcs.o
-	g++ -o tests tests.o funcs.o
+tests: tests.o caesar.o
+	g++ -o tests tests.o caesar.o
 
 
 
