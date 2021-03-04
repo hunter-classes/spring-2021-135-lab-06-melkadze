@@ -44,3 +44,16 @@ TEST_CASE("[B: encryptCaesar] Nonshiftable strings") {
     CHECK(encryptCaesar("1234, 5678", 1) == "1234, 5678");
     CHECK(encryptCaesar("     ", 5) == "     ");
 }
+
+TEST_CASE("[C: encryptVigenere] Shiftable strings") {
+    CHECK(encryptVigenere("Hello, World!", "cake") == "Jevpq, Wyvnd!");
+    CHECK(encryptVigenere("ATTACKATDAWN", "lemon") == "LXFOPVEFRNHR");
+    CHECK(encryptVigenere("this is identical to", "a") == "this is identical to");
+    CHECK(encryptVigenere("ABCD, abcd", "b") == "BCDE, bcde");
+}
+
+TEST_CASE("[B: encryptVigenere] Nonshiftable strings") {
+    CHECK(encryptVigenere("!!!!!?????", "cake") == "!!!!!?????");
+    CHECK(encryptVigenere("1234, 5678", "lemon") == "1234, 5678");
+    CHECK(encryptVigenere("     ", "a") == "     ");
+}

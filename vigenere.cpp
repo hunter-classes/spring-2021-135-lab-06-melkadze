@@ -9,13 +9,16 @@ bool isAlpha(char c) {
 
 // gets the proper char from keyword string (supports overflow / loop-back)
 char keywordChar(std::string keyword, int shift) {
+    /*if (keyword.length() == 0)
+        return keyword[0] - 97;*/
+    
     int newShift = shift;
     
     while (!(0 <= newShift && newShift <= keyword.length() - 1)) {
-        newShift = (newShift < 0) ? newShift + 4 : newShift - 4;
+        newShift = (newShift < 0) ? newShift + keyword.length() : newShift - keyword.length();
     }
     
-    return keyword[newShift ] - 97; //subtract 97 since the first loweralpha char is id 97
+    return keyword[newShift] - 97; //subtract 97 since the first loweralpha char is id 97
 }
 
 // encrypts by vigenere
