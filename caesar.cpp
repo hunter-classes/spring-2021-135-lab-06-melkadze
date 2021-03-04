@@ -12,6 +12,7 @@ int standardShift(int rshift) {
     return newShift;
 }
 
+// shift an alpha char with overflow (loop-back) support depending on upper/lowercase
 char shiftChar(char c, int rshift) {
     int newShift = standardShift(rshift);
     char newChar = c;
@@ -22,22 +23,22 @@ char shiftChar(char c, int rshift) {
             if (newChar == 90)
                 newChar = 65;
             else
-                newChar++;
+                newChar = shiftChar(newChar, 1);
         }
-        
     } else if (97 <= c && c <= 122) {
         // lowercases
         for (int i = newShift; i > 0; i--) {
             if (newChar == 122)
                 newChar = 97;
             else
-                newChar++;
+                newChar = shiftChar(newChar, 1);
         }
     } //ignore all others (symbols)
     
     return newChar;
 }
 
+// encrypts by caesar
 std::string encryptCaesar(std::string plaintext, int rshift) {
     std::string encoded = "";
     
