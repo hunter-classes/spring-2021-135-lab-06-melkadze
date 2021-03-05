@@ -7,11 +7,8 @@ bool isAlpha(char c) {
     return ((65 <= c && c <= 90) || (97 <= c && c <= 122));
 }
 
-// gets the proper char from keyword string (supports overflow / loop-back)
-char keywordChar(std::string keyword, int shift) {
-    /*if (keyword.length() == 0)
-        return keyword[0] - 97;*/
-    
+// gets the proper shift from keyword string (supports overflow / loop-back)
+char keywordShift(std::string keyword, int shift) {
     int newShift = shift;
     
     while (!(0 <= newShift && newShift <= keyword.length() - 1)) {
@@ -27,7 +24,7 @@ std::string encryptVigenere(std::string plaintext, std::string keyword) {
     int keywordCounter = 0;
     
     for (int i = 0; i < plaintext.length(); i++) {
-        encoded = encoded + shiftChar(plaintext[i], (int)keywordChar(keyword, keywordCounter));
+        encoded = encoded + shiftChar(plaintext[i], keywordShift(keyword, keywordCounter));
         
         if (isAlpha(plaintext[i]))
             keywordCounter++; //only advance if an alpha is used
