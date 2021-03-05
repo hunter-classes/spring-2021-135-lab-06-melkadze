@@ -34,6 +34,8 @@ TEST_CASE("[B: shiftChar] Non-alphabetic characters (should not shift)") {
     CHECK(shiftChar('"', -53) == '"');
 }
 
+
+
 TEST_CASE("[B: encryptCaesar] Shiftable strings") {
     CHECK(encryptCaesar("Hello, World!", 10) == "Rovvy, Gybvn!");
     CHECK(encryptCaesar("ABCD, abcd", 1) == "BCDE, bcde");
@@ -46,23 +48,46 @@ TEST_CASE("[B: encryptCaesar] Nonshiftable strings") {
     CHECK(encryptCaesar("     ", 5) == "     ");
 }
 
+
+
 TEST_CASE("[C: encryptVigenere] Shiftable strings") {
     CHECK(encryptVigenere("Hello, World!", "cake") == "Jevpq, Wyvnd!");
     CHECK(encryptVigenere("ATTACKATDAWN", "lemon") == "LXFOPVEFRNHR");
-    CHECK(encryptVigenere("this is identical to", "a") == "this is identical to");
     CHECK(encryptVigenere("ABCD, abcd", "b") == "BCDE, bcde");
+    CHECK(encryptVigenere("this is identical to", "a") == "this is identical to");
 }
 
-TEST_CASE("[B: encryptVigenere] Nonshiftable strings") {
+TEST_CASE("[C: encryptVigenere] Nonshiftable strings") {
     CHECK(encryptVigenere("!!!!!?????", "cake") == "!!!!!?????");
     CHECK(encryptVigenere("1234, 5678", "lemon") == "1234, 5678");
     CHECK(encryptVigenere("     ", "a") == "     ");
 }
 
+
+
 TEST_CASE("[D: decryptCaesar] Shiftable strings") {
     CHECK(decryptCaesar("Rovvy, Gybvn!", 10) == "Hello, World!");
+    CHECK(decryptCaesar("BCDE, bcde", 1) == "ABCD, abcd");
+    CHECK(decryptCaesar("this is identical to", 26) == "this is identical to");
 }
 
+TEST_CASE("[D: decryptCaesar] Nonshiftable strings") {
+    CHECK(decryptCaesar("!!!!!?????", 10) == "!!!!!?????");
+    CHECK(decryptCaesar("1234, 5678", 1) == "1234, 5678");
+    CHECK(decryptCaesar("     ", 5) == "     ");
+}
+
+
+
 TEST_CASE("[D: decryptVigenere] Shiftable strings") {
-    CHECK(encryptVigenere("Jevpq, Wyvnd!", "yaqw") == "Hello, World!");
+    CHECK(decryptVigenere("Jevpq, Wyvnd!", "cake") == "Hello, World!");
+    CHECK(decryptVigenere("LXFOPVEFRNHR", "lemon") == "ATTACKATDAWN");
+    CHECK(decryptVigenere("BCDE, bcde", "b") == "ABCD, abcd");
+    CHECK(decryptVigenere("this is identical to", "a") == "this is identical to");
+}
+
+TEST_CASE("[D: decryptVigenere] Nonshiftable strings") {
+    CHECK(decryptVigenere("!!!!!?????", "cake") == "!!!!!?????");
+    CHECK(decryptVigenere("1234, 5678", "lemon") == "1234, 5678");
+    CHECK(decryptVigenere("     ", "a") == "     ");
 }
