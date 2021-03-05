@@ -15,7 +15,7 @@ caesar.o: caesar.cpp caesar.h
 
 vigenere.o: vigenere.cpp vigenere.h caesar.h # we reuse the task B helper
 
-decrypt.o: decrypt.cpp decrypt.h
+decrypt.o: decrypt.cpp decrypt.h caesar.h vigenere.h # we reuse the encryption functions
 
 main.o: main.cpp caesar.h vigenere.h
 

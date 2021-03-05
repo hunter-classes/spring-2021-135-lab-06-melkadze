@@ -2,6 +2,7 @@
 #include "doctest.h"
 #include "caesar.h"
 #include "vigenere.h"
+#include "decrypt.h"
 
 TEST_CASE("[B: shiftChar] Lowercase") {
     CHECK(shiftChar('a', 4) == 'e');
@@ -56,4 +57,8 @@ TEST_CASE("[B: encryptVigenere] Nonshiftable strings") {
     CHECK(encryptVigenere("!!!!!?????", "cake") == "!!!!!?????");
     CHECK(encryptVigenere("1234, 5678", "lemon") == "1234, 5678");
     CHECK(encryptVigenere("     ", "a") == "     ");
+}
+
+TEST_CASE("[D: decryptCaesar] Shiftable strings") {
+    CHECK(decryptCaesar("Rovvy, Gybvn!", 10) == "Hello, World!");
 }
