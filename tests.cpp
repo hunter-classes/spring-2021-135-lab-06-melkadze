@@ -62,3 +62,7 @@ TEST_CASE("[B: encryptVigenere] Nonshiftable strings") {
 TEST_CASE("[D: decryptCaesar] Shiftable strings") {
     CHECK(decryptCaesar("Rovvy, Gybvn!", 10) == "Hello, World!");
 }
+
+TEST_CASE("[D: decryptVigenere] Shiftable strings") {
+    CHECK(encryptVigenere("Jevpq, Wyvnd!", "yaqw") == "Hello, World!");
+}
