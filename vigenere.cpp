@@ -8,7 +8,7 @@ bool isAlpha(char c) {
 }
 
 // gets the proper shift from keyword string (supports overflow / loop-back)
-char keywordShift(std::string keyword, int shift) {
+int keywordShift(std::string keyword, int shift) {
     int newShift = shift;
     
     while (!(0 <= newShift && newShift <= keyword.length() - 1)) {
